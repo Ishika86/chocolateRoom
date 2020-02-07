@@ -1,0 +1,26 @@
+<h1 style="color: lightcoral">Cart Details</h1>
+<div *ngIf="products">
+  <h2 style="color: darkblue">{{products.name}}</h2>
+<div class="cart-item" *ngFor="let item of items">
+  <h2><span>{{ item.name }}</span> </h2>
+  <h2><span>{{ item.price | currency }}</span></h2>
+</div>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="address">
+      Address
+    </label>
+    <input id="address" type="text" formControlName="address">
+  </div>
+  <button class="button" type="submit">Purchase</button>
+
+</form>

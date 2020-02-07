@@ -1,0 +1,26 @@
+<h1>Restaurants</h1>
+
+<div *ngFor="let product of products" style="float: left" >
+
+  <h2 style="color: brown">
+    <a [title]="product.name" >
+      {{ product.name }}
+    </a>
+  </h2>
+
+
+
+  <p *ngIf="product.image">
+    <img [src]="product.image" height="200px" width="300px" hspace="20px" >
+  </p>
+
+
+  <button  (click)="product.name + ' details'" [routerLink]="['/products', product.productId]" routerLinkActive="active" width="30px" height="25px"  style="float: left" >
+    Order
+  </button>
+  <br>
+</div>
+
+
+
+
