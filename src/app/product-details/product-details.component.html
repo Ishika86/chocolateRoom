@@ -25,7 +25,7 @@
            <div class="modal-content">
              <div class="modal-header" >
                 <h4>Item Details</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close"  data-dismiss="modal">&times;</button>
               </div>
                <div class="modal-body">
                     <div *ngIf="selectedItem" class="row">
@@ -33,15 +33,16 @@
                       <div class="col-7">
                         <h2><a [title]="selectedItem.name">{{ selectedItem.name }}</a></h2>
                         <h2><a [title]="selectedItem.price">{{ selectedItem.price | currency }}</a></h2>
-                        <h3>Quantity :
-                          <input  [(ngModel)]="quantity" type="number" min="0" [defaultValue]="0" style="align: left" ></h3>
-                        <h2>Total :
-                          <a>{{selectedItem.price * quantity}}</a></h2>
+                        <h3>Quantity :{{selectedItem.quantity}}
+                          <input  [(ngModel)]="selectedItem.quantity" type="number" min="1" oninput="this.value = Math.abs(this.value)"
+                                  style="align: left" ></h3>
+                       <h2> Total :
+                        <div>{{selectedItem.price * selectedItem.quantity}}</div>
+                       </h2>
                       </div>
                      </div>
-
                       <div class="modal-footer">
-                        <button class="btn btn-primary" (click)="addToCart(selectedItem)">Add to Cart</button>
+                        <button class="btn btn-primary" (click)="addToCart(selectedItem)"  (click)="Success()" data-dismiss="modal" >Add to Cart</button>
                       </div>
                </div>
       </div>

@@ -1,9 +1,11 @@
-import { Component, OnInit , ViewEncapsulation, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter, SimpleChanges, SimpleChange} from
+    '@angular/core';
 import { CartService } from '../cart.service';
 import { FormBuilder } from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-
+import {Hero} from '../Hero';
 import { products } from '../products';
+import {items} from '../items';
 
 @Component({
   selector: 'app-cart',
@@ -13,28 +15,30 @@ import { products } from '../products';
 export class CartComponent implements OnInit {
   items;
   products;
-  checkoutForm;
+  total: number;
   constructor(private cartService: CartService,
               private route: ActivatedRoute,
               private router: Router,
               private formBuilder: FormBuilder) {
   }
+
   ngOnInit() {
     this.items = this.cartService.getItems();
+    console.log(this.items);
+    this.total = this.cartService.getTotal();
     this.route.paramMap.subscribe(params => {
       this.products = products[+params.get('name')];
+      console.log(this.products);
     });
-    this.checkoutForm = this.formBuilder.group({
-      name: '',
-      address: ''
-    });
-  }
-  onSubmit(customerData) {
-    console.warn('Your order has been submitted', customerData);
-    this.items = this.cartService.clearCart();
-    this.checkoutForm.reset();
 
   }
+  removeToCart(index: number) {
+    this.items.splice(index , 1);
 
+  }
 
 }
+
+
+
+

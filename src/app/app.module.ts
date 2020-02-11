@@ -11,6 +11,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
+import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
+import {ToasterService} from './toaster-service.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     NgSelectModule,
+    SnotifyModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
@@ -33,6 +38,9 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ProductDetailsComponent,
     CartComponent,
+  ],
+  providers: [
+   ToasterService
   ],
   bootstrap: [ AppComponent ],
 })

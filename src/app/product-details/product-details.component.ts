@@ -5,7 +5,7 @@ import { items } from '../items';
 import { products } from '../products';
 import { CartService } from '../cart.service';
 import {Hero} from '../Hero';
-
+import {ToasterService} from '../toaster-service.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -16,18 +16,27 @@ export class ProductDetailsComponent implements OnInit {
   items = items;
   product;
   quantity: number;
-  selectedItem: Hero;
+  selectedItem: any =  {
+    itemId: '',
+    name: '',
+    price: '',
+    image: '',
+    quantity: 1,
+    total: 0,
+  };
+  constoptions= {positionClass: 'toast-bottom-right', timeOut: 3000};
   constructor(private route: ActivatedRoute,
+              private toasterService:ToasterService,
               private router: Router,
               private cartService: CartService,
               private formBuilder: FormBuilder) {}
+
   addToCart(product) {
-    while (this.quantity > 0) {
+    this.selectedItem.quantity = product.quantity;
       this.cartService.addToCart(product);
-      this.quantity = this.quantity - 1 ;
-    }
-    window.alert('Your product has been added to the cart!');
+
   }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.product = products[+params.get('productId')];
@@ -36,6 +45,9 @@ export class ProductDetailsComponent implements OnInit {
   onSelect(item: Hero): void {
     this.selectedItem = item;
     console.log(item);
+  }
+  Success(){
+    this.toasterService.Success("Item is added in the cart");
   }
 }
 
