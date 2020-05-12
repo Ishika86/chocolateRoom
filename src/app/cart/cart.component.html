@@ -1,11 +1,24 @@
-<h1 style="color: lightcoral">Cart Details</h1>
-<div *ngIf="products">
-  <h2 style="color: darkblue">{{products.name}}</h2>
-  <div class="cart-item" *ngFor="let item of items">
-    <h2><span>{{ item.name }}</span> </h2>
-    <h2><span>{{ item.price | currency }}</span></h2>
-    <h2><span>{{ item.quantity}}</span></h2>
-    <h2><span>{{item.price * item.quantity}}</span></h2>
-    <h2><span> <button class="btn btn-primary" (click)="removeToCart(item)">Remove</button></span></h2>
+<h1 style="color: black">Cart Details</h1>
+<div class="grid-container">
+  <div class="row">
+  <div class="card-header" *ngFor="let item of cart_data">
+    <h2 class="card-title">
+      {{item.table_Number}}
+    </h2>
+    <div class="card">
+
+      <div class="card-body" *ngFor="let  m of item.table_items">
+        <h3 class="card-title">Name : {{m.name}}</h3>
+        <h3 class="card-title">Price : {{m.price | currency}}</h3>
+        <h3 class="card-title" >Quantity : {{m.quantity}}</h3>
+        <h3 class="card-title"> Instructions : {{m.instructions }}</h3>
+      </div>
+      <h3 class="card-text" >Total :{{getTotal(item.table_items) }}</h3>
+      <button (click)="clearCart(item)">Order Done</button>
+    </div>
+
+    </div>
   </div>
-  <div><h1>Total:{{total}}</h1></div>
+</div>
+
+

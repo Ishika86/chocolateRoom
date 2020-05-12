@@ -5,6 +5,8 @@ export const items = [
     price: 200,
     image: 'assets/FoodItems/item1.jpeg',
     quantity: 1,
+    instructions: 'NA',
+    addOn: [],
   },
   {
     itemId: 1,
@@ -12,6 +14,8 @@ export const items = [
     price: 700,
     image: 'assets/FoodItems/item2.jpg',
     quantity: 1,
+    instructions: 'NA',
+    addOn: [],
   },
   {
     itemId: 2,
@@ -19,6 +23,8 @@ export const items = [
     price: 450,
     image : 'assets/FoodItems/item3.jpg',
     quantity: 1,
+    instructions: 'NA',
+    addOn: [],
   },
   {
     itemId: 3,
@@ -26,6 +32,8 @@ export const items = [
     price: 280,
     image : 'assets/FoodItems/item4.jpg',
     quantity: 1,
+    instructions: 'NA',
+    addOn: [],
   },
   {
     itemId: 4,
@@ -33,6 +41,8 @@ export const items = [
     price: 120,
     image : 'assets/FoodItems/item5.jpg',
     quantity: 1,
+    instructions: 'NA',
+    addOn: [],
   },
   {
     itemId: 5,
@@ -40,5 +50,7 @@ export const items = [
     price: 340,
     image : 'assets/FoodItems/item6.jpg',
     quantity: 1,
+    instructions: 'NA',
+    addOn: [],
   },
 ];

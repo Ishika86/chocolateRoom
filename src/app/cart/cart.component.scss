@@ -1,0 +1,23 @@
+
+th, td {
+  padding: 10px;
+  font-size: x-large;
+}
+h2 {
+  font-size: x-large;
+  color: darkblue;
+}
+h3 {
+  color: brown;
+  font-style: italic;
+}
+.card-deck{
+  padding-right: 5px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 50px;
+  grid-row-gap: 10px;
+  padding: 10px;
+}

@@ -23,7 +23,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     NgSelectModule,
-    SnotifyModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },

@@ -5,4 +5,6 @@ export interface Hero {
   image: string;
   quantity: 1;
   total: number;
+  instructions : string;
+  addOn : any;
 }
